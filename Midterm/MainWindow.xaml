@@ -1,0 +1,73 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Midterm"
+        xmlns:VisualBasic="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic.Core" x:Class="Midterm.MainWindow"
+        mc:Ignorable="d"
+        Title="Covid-19 Confirmed Cases" Height="521" Width="800">
+    <Grid Margin="0,433,0,0">
+        <DataGrid x:Name="dataGridCovid"
+                  Margin="10,-369,32,94"
+            CanUserAddRows = "False" AutoGenerateColumns ="False">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Country/Region"
+                                    Binding="{Binding Country}" />
+
+                <DataGridTextColumn Header="State/Province"
+                                    Binding="{Binding State}" />
+
+                <DataGridTextColumn Header="Number of Case"
+                                    Binding="{Binding NumberofCase}" />
+
+                <DataGridTemplateColumn x:Name="recordDateColumn"
+                                        Width="Auto"
+                                        Header="Confirmed Date">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding ConfirmedDate}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border
+                Background="CadetBlue">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Jiye Yu"
+                           FontSize="16"
+                           Width="100"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left" />
+                <Button x:Name="btnIcon"
+                        Click="btnIcon_Click"
+                        Height="65"
+                        HorizontalAlignment="Right">
+                    <Image Source="/CentennialIcon.png" Width="127" Height="76"/>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Label x:Name="lblCountry" Content="Country" HorizontalAlignment="Left" Margin="10,-417,0,0" VerticalAlignment="Top" Width="66" FontFamily="Arial"
+               FontSize="14" RenderTransformOrigin="-0.016,0.61" FontWeight="Normal"/>
+        
+        <ComboBox x:Name="cmbCountry" HorizontalAlignment="Left" Margin="81,-423,0,0" VerticalAlignment="Top" Width="249" Height="39"
+                  SelectionChanged="cmbCountry_SelectionChanged"
+          />
+        <Button x:Name="btnDisplay" Content="Display All Data" HorizontalAlignment="Left" Margin="569,-423,0,0" VerticalAlignment="Top" Height="39"
+                Width="189" Background="CornflowerBlue" Foreground="#FFCAD696" FontWeight="Bold" FontFamily="Arial Black" FontSize="14" Click="btnDisplay_Click"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="366,-423,0,0" VerticalAlignment="Top" Width="188" Height="39" Background="CornflowerBlue"
+                Foreground="#FFCAD696" FontWeight="Bold" FontFamily="Arial Black" FontSize="14" Click="btnSearch_Click"/>
+
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>
